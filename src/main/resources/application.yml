@@ -1,0 +1,29 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: shiro_demo
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/shiro_demo
+    username: root
+    password: root
+mybatis-plus:
+  type-aliases-package: top.shiro_demo.user.entity
+  mapper-locations: classpath:/top/shiro_demo/user/mapper/*Mapper.xml
+  global-config:
+    enable-sql-runner: true
+    banner: false
+    db-config:
+      db-type: mysql
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+shiro:
+  loginUrl: /login
+shiro-redis:
+  session-dao:
+    expire: 3600
+  redis-manager:
+    host: 127.0.0.1:6379
+    timeout: 50000
+  cache-manager:
+    expire: 3600
